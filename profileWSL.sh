@@ -4,6 +4,9 @@
 sudo apt update
 sudo apt upgrade -y
 
+#Instalar git
+sudo apt install git -y
+
 # Instalar Zsh
 sudo apt install zsh -y
 
