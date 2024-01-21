@@ -15,6 +15,9 @@ El script `setup_wsl.sh` automatiza la configuración de un entorno de desarroll
 7. Configura Zsh para usar Powerlevel10k y los plugins instalados.
 
 
+![image](https://github.com/Eldpit/WSL-ELDPIT/assets/157283398/2bb24199-f630-4acf-aa96-12092d1505e6)
+
+
 ## Síguenos en Twitch
 Para ver más sobre cómo desarrollamos y personalizamos entornos de desarrollo, ¡síguenos en Twitch!
 
