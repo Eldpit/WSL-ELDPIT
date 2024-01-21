@@ -4,8 +4,8 @@
 sudo apt update
 sudo apt upgrade -y
 
-#Instalar git
-sudo apt install git -y
+#Instalar git y curl
+sudo apt install git curl -y
 
 # Instalar Zsh
 sudo apt install zsh -y
@@ -14,7 +14,7 @@ sudo apt install zsh -y
 chsh -s /usr/bin/zsh
 
 # Instalar oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "RUNZSH=no; $(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Instalar el tema Powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
