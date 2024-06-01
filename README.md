@@ -26,5 +26,8 @@ Para ver más sobre cómo desarrollamos y personalizamos entornos de desarrollo,
 Transmitimos regularmente sesiones de programación en vivo, donde trabajamos en proyectos como este y otros similares. ¡Únete a nuestra comunidad para aprender, contribuir y pasar un buen rato!
 
 ---
+Estilos de letra https://www.nerdfonts.com/font-downloads
+
+---
 
 ©Eldpit. Todos los derechos reservados.
