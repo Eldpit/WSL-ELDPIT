@@ -130,8 +130,47 @@ Este script está optimizado para funcionar en **Kali Linux** dentro de WSL. Las
 - Windows 10/11 con WSL2 habilitado
 - Kali Linux instalado desde la Microsoft Store
 - Conexión a internet
+- **Nerd Font instalada** (requerida para ver iconos correctamente)
 
-### Instalación Rápida
+### ⚠️ IMPORTANTE: Instalación de Fuentes
+
+**Antes de ejecutar el script, debes instalar una Nerd Font para ver los iconos correctamente.**
+
+Si ves símbolos como `???` o cuadrados `�` en lugar de iconos, necesitas instalar una Nerd Font en Windows.
+
+#### Fuentes Recomendadas
+
+**1. MesloLGS NF** ⭐ (Recomendada - Optimizada para Powerlevel10k)
+
+Descarga e instala estos 4 archivos en Windows:
+- [MesloLGS NF Regular.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf)
+- [MesloLGS NF Bold.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf)
+- [MesloLGS NF Italic.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf)
+- [MesloLGS NF Bold Italic.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf)
+
+**Otras opciones populares:**
+- **JetBrains Mono Nerd Font** - Moderna y elegante
+- **Hack Nerd Font** - Muy legible
+- **FiraCode Nerd Font** - Con ligaduras de código
+
+📥 Todas disponibles en: **https://www.nerdfonts.com/font-downloads**
+
+#### Cómo Instalar la Fuente en Windows
+
+1. **Descarga** los archivos `.ttf` de la fuente elegida
+2. **Haz clic derecho** en cada archivo → "Instalar" o "Instalar para todos los usuarios"
+3. **Configura Windows Terminal**:
+   - Abre **Windows Terminal** (o tu terminal favorita)
+   - Ve a **Configuración** (`Ctrl + ,`)
+   - Selecciona tu perfil de **Kali Linux**
+   - En la sección **"Apariencia"**
+   - Cambia **"Tipo de letra"** a la Nerd Font que instalaste (ejemplo: `MesloLGS NF`)
+   - **Guarda** y **reinicia la terminal**
+
+### Instalación del Script
+
+Una vez instalada la fuente:
+
 ```bash
 git clone https://github.com/Eldpit/WSL-ELDPIT.git
 cd WSL-ELDPIT
@@ -256,6 +295,70 @@ alias
 
 # Ver todos los plugins activos
 omz plugin list
+```
+
+## 🔧 Solución de Problemas
+
+### ❌ Los iconos se ven como ??? o cuadrados �
+
+**Problema**: Ves símbolos extraños (`???`, `�`, cuadrados) en lugar de iconos bonitos.
+
+**Solución**: No tienes una Nerd Font instalada o configurada correctamente.
+
+1. **Instala una Nerd Font** (ver sección "Instalación de Fuentes" arriba)
+   - Recomendado: [MesloLGS NF](https://github.com/romkatv/powerlevel10k#fonts)
+2. **Configura tu terminal** para usar esa fuente
+3. **Reinicia completamente** tu terminal (cierra todas las ventanas)
+4. Si sigues viendo problemas, ejecuta `p10k configure` y sigue el asistente
+
+### ❌ Homebrew no se instala
+
+**Problema**: Error al instalar Homebrew.
+
+**Solución**:
+```bash
+# Asegúrate de tener las dependencias
+sudo apt update
+sudo apt install build-essential procps curl file git -y
+
+# Instala Homebrew manualmente
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Añade Homebrew al PATH
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+### ❌ Los plugins de Zsh no funcionan
+
+**Problema**: Algún plugin no está activo.
+
+**Solución**:
+```bash
+# Recarga la configuración
+source ~/.zshrc
+
+# Verifica los plugins activos
+omz plugin list
+
+# Si falta alguno, verifica que esté en ~/.zshrc
+grep "plugins=" ~/.zshrc
+```
+
+### ❌ Error: "command not found" con las herramientas
+
+**Problema**: Comandos como `bat`, `eza`, `btop` no se encuentran.
+
+**Solución**:
+```bash
+# Asegúrate de que Homebrew esté en el PATH
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Reinstala las herramientas si es necesario
+brew install bat eza btop fastfetch delta glow lazygit ncdu tldr
+
+# Recarga la configuración
+source ~/.zshrc
 ```
 
 
